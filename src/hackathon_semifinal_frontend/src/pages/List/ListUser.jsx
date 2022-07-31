@@ -1,38 +1,15 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Popconfirm, Table, Space } from "antd";
 import * as S from "./style"
 import { Link } from "react-router-dom";
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-  },
-  {
-    key: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-];
+import { hackathon_semifinal_backend } from "../../../../declarations/hackathon_semifinal_backend";
+
 
 const ListUser = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
   const [sortedInfo, setSortedInfo] = useState({});
+  const [dataRender , setDataRender ] = useState([]);
 
   const handleChange = (pagination, filters, sorter) => {
     console.log("Various parameters", pagination, filters, sorter);
@@ -42,6 +19,20 @@ const ListUser = () => {
     const handleDelete = () => {
 
     }
+
+    useEffect(() => {
+        async function fetchData() {
+          let _data = await hackathon_semifinal_backend.readCustomers();
+          setDataRender(_data)
+        }
+
+        fetchData()
+    
+      
+    }, [])
+    
+
+
     
 
  
@@ -129,7 +120,7 @@ const ListUser = () => {
       >
        
       </Space>
-          <Table columns={columns} dataSource={data} onChange={handleChange} />
+          <Table columns={columns} dataSource={dataRender} onChange={handleChange} />
           <Button>Regiter</Button>
     </S.Wrapper>
   );
