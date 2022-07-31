@@ -87,9 +87,11 @@ const ListUser = () => {
       dataIndex: "",
       key: "",
         render: (_, record) =>
-        {
-            <Link to={`/update/${record.key}`}>Update</Link>
-        }
+        (
+          <Link to={`/update/${record.key}`}>
+            <span>update</span>
+          </Link>
+        )
         
     },
     {
@@ -110,18 +112,26 @@ const ListUser = () => {
   return (
     <S.Wrapper>
       <div>
-        <Button>ksksks</Button>
-        <h1>Customer List</h1>
+        <S.WrapperConnect>
+          <Button>ksksks</Button>
+        </S.WrapperConnect>
+
+        <S.WrapperButton>
+          <h1>Customer List</h1>
+        </S.WrapperButton>
       </div>
       <Space
         style={{
           marginBottom: 16,
         }}
-      >
-       
-      </Space>
-          <Table columns={columns} dataSource={dataRender} onChange={handleChange} />
+      ></Space>
+      <Table columns={columns} dataSource={data} onChange={handleChange} />
+
+      <Link to={"/register"}>
+        <S.WrapperButton>
           <Button>Regiter</Button>
+        </S.WrapperButton>
+      </Link>
     </S.Wrapper>
   );
 };

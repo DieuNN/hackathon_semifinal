@@ -11,6 +11,7 @@ import { createClient } from "@connect2ic/core"
 import { Connect2ICProvider } from "@connect2ic/react"
 import "@connect2ic/core/style.css"
 import { PlugWallet } from "@connect2ic/core/providers";
+import Resgister from "./pages/Resgister/Resgister";
 
 const AppRoot = () => {
   const client = createClient({
@@ -33,6 +34,7 @@ const AppRoot = () => {
         <Route path="/list" element={<ListUser />}></Route>
         <Route path="/update/:id" element={<Update />}></Route>
 
+        <Route path="/register" element={<Resgister />}></Route>
       </Routes>
     </BrowserRouter>
   );
