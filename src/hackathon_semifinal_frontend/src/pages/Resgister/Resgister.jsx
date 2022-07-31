@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import { hackathon_semifinal_backend } from "../../../../declarations/hackathon_semifinal_backend";
 
 import { Button, Form, Input, Radio, DatePicker, Row, Col } from "antd";
 
@@ -29,6 +30,11 @@ const validateMessages = {
 const Resgister = () => {
   const onFinish = (values) => {
     console.log(values);
+    async function register() {
+      await hackathon_semifinal_backend.createCustomer(values.firstName, values.lastName, true, values.dateOfBirth, values.phone, values.address)
+
+    }
+    register()
   };
 
   return (
@@ -42,7 +48,7 @@ const Resgister = () => {
             validateMessages={validateMessages}
           >
             <Form.Item
-              name={["user", "name"]}
+              name='firstName'
               label="First name"
               rules={[
                 {
@@ -53,31 +59,29 @@ const Resgister = () => {
               <Input />
             </Form.Item>
             <Form.Item
-              name={["user", "email"]}
+              name='lastName'
               label="Last name"
-              rules={[
-                {
-                  type: "email",
-                },
-              ]}
             >
               <Input />
             </Form.Item>
 
-            <Form.Item label="Sex">
+            <Form.Item label="Sex" name='sex'>
               <Radio.Group>
-                <Radio value="male"> Male </Radio>
-                <Radio value="female"> Female </Radio>
+                <Radio value='true'> Male </Radio>
+                <Radio value="false"> Female </Radio>
               </Radio.Group>
             </Form.Item>
             <Form.Item label="DatePicker">
               <DatePicker />
             </Form.Item>
 
-            <Form.Item name={["user", "website"]} label="Phone">
+            <Form.Item name='dateOfBirth' label="Date of birth">
               <Input />
             </Form.Item>
-            <Form.Item name={["user", "introduction"]} label="Address">
+            <Form.Item name='phone' label="Phone">
+              <Input.TextArea />
+            </Form.Item>
+            <Form.Item name='address' label="Adrress">
               <Input.TextArea />
             </Form.Item>
             <Row justify="center" gutter={30}>

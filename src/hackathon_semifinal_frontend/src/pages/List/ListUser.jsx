@@ -43,29 +43,29 @@ const ListUser = () => {
       dataIndex: "id",
       key: "id",
 
-      sorter: (a, b) => a.name.length - b.name.length,
+      sorter: (a, b) => a.id.length - b.id.length,
       sortOrder: sortedInfo.columnKey === "id" ? sortedInfo.order : null,
       ellipsis: true,
     },
     {
       title: "Name",
-      dataIndex: "name",
-      key: "name",
-      sorter: (a, b) => a.name - b.name,
-      sortOrder: sortedInfo.columnKey === "name" ? sortedInfo.order : null,
+      dataIndex: "firstName",
+      key: "firstName",
+      sorter: (a, b) => a.firstName - b.firstName,
+      sortOrder: sortedInfo.columnKey === "firstName" ? sortedInfo.order : null,
       ellipsis: true,
     },
     {
-      title: "Birthday",
-      dataIndex: "birthday",
-      key: "birthday",
+      title: "dateOfBirth",
+      dataIndex: "dateOfBirth",
+      key: "dateOfBirth",
 
-      sorter: (a, b) => a.birthday.length - b.birthday.length,
-      sortOrder: sortedInfo.columnKey === "birthday" ? sortedInfo.order : null,
+      sorter: (a, b) => a.dateOfBirth.length - b.dateOfBirth.length,
+      sortOrder: sortedInfo.columnKey === "dateOfBirth" ? sortedInfo.order : null,
       ellipsis: true,
     },
     {
-      title: "Phone",
+      title: "phone",
       dataIndex: "phone",
       key: "phone",
 
@@ -74,7 +74,7 @@ const ListUser = () => {
       ellipsis: true,
     },
     {
-      title: "Sex",
+      title: "sex",
       dataIndex: "sex",
       key: "sex",
 
@@ -125,7 +125,7 @@ const ListUser = () => {
           marginBottom: 16,
         }}
       ></Space>
-      <Table columns={columns} dataSource={data} onChange={handleChange} />
+      <Table columns={columns} dataSource={dataRender} onChange={handleChange} />
 
       <Link to={"/register"}>
         <S.WrapperButton>
