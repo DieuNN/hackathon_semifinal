@@ -1,19 +1,17 @@
+import { render } from "react-dom";
+import React from "react";
 import { hackathon_semifinal_backend } from "../../declarations/hackathon_semifinal_backend";
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
 
-  const name = document.getElementById("name").value.toString();
+const AppRoot = () => {
+  return (
+    <>
+      <p>Hi</p>
+    </>
+  )
+}
 
-  button.setAttribute("disabled", true);
 
-  // Interact with foo actor, calling the greet method
-  const greeting = await hackathon_semifinal_backend.greet(name);
+render(<AppRoot></AppRoot>, document.querySelector(".app"));
 
-  button.removeAttribute("disabled");
 
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
-});
