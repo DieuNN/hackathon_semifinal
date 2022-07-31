@@ -1,13 +1,12 @@
 module {
-
     public type Customer = {
-        index : Nat;
+        index  : Nat;
         firstName : Text;
         lastName : Text;
         // true means man, false means woman
         sex : Bool;
         dateOfBirth : Text;
         phone : Text;
-        address : Text; 
+        address : Text;
     };
 };
