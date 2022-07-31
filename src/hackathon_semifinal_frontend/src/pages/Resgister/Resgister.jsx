@@ -26,7 +26,7 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const Update = () => {
+const Resgister = () => {
   const onFinish = (values) => {
     console.log(values);
   };
@@ -34,7 +34,7 @@ const Update = () => {
   return (
     <S.Wrapper>
       <Row gutter={16}>
-        <Col span={18} style={{ marginTop: 60 }}>
+        <Col span={18} style={{marginTop: 60}} >
           <Form
             {...layout}
             name="nest-messages"
@@ -96,7 +96,7 @@ const Update = () => {
             </Row>
           </Form>
         </Col>
-        <Col span={6}>
+        <Col span={6} >
           <Button>kdkdksk</Button>
         </Col>
       </Row>
@@ -104,4 +104,4 @@ const Update = () => {
   );
 };
 
-export default Update;
+export default Resgister;
